@@ -1,0 +1,20 @@
+<nav class="relative top-0 z-50 w-full">
+  <div class="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-4">
+    <div class="flex items-center justify-between">
+      <ul class="flex items-center space-x-8 sm:space-x-16">
+        @for (link of navbarLinks; track link.href){
+          <li>
+            <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-950">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+      <div class="flex items-center">
+        <a href="/login" class="bg-blue-100 text-gray-800 text-sm sm:text-base rounded-full border-2 border-gray-800 px-6 md:px-8 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-800 hover:text-gray-100">
+          Login
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,39 @@
+<footer>
+  <div class="relative px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div class="flex flex-col space-y-2 sm:space-y-4">
+        <h5 class="font-semibold text-lg sm:text-xl font-sans text-blue-800 ">
+          Menu
+        </h5>
+        <ul class="space-y-1 sm:space-y-2">
+          @for (link of footerLinks; track link.href){
+          <li>
+            <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-900">
+              {{ link.label }}
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="flex flex-col space-y-2 sm:space-y-4">
+        <h5 class="font-semibold text-lg sm:text-xl font-sans text-pink-800 ">
+          Services
+        </h5>
+        <ul class="space-y-1 sm:space-y-2">
+          @for (link of serviceLinks; track link.href){
+          <li>
+            <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-900">
+              {{ link.label }}
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="flex justify-center sm:justify-end items-end col-span-2 sm:col-span-1">
+        <p class="font-medium font-sans text-gray-800 text-sm sm:text-base">
+          Copyright &copy; {{ dateYear }}  Muhammad Naufan Athoillah
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
