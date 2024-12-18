@@ -22,7 +22,7 @@
         <ul class="space-y-1 sm:space-y-2">
           @for (link of serviceLinks; track link.href){
           <li>
-            <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-900">
+            <a routerLink="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-900">
               {{ link.label }}
             </a>
           </li>
