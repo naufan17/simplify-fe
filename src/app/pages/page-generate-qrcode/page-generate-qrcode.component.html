@@ -1,0 +1,108 @@
+<div class="bg-gradient-to-tr from-pink-50 to-blue-200 min-h-screen">
+  <app-navbar></app-navbar>
+  <div class="relative px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-lg md:px-24 lg:px-8 lg:py-8">
+    <div class="flex flex-col items-center justify-center max-w-xl my-4 sm:my-8 md:mx-auto lg:max-w-3xl mx-4 sm:mx-8">
+      <h2 class="mb-3 sm:mb-4 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 sm:text-4xl md:mx-auto">
+        QR Code
+      </h2>
+      <p class="mb-3 sm:mb-4 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
+        Generate various QR code to <span class="text-pink-100 bg-pink-800 px-1">Simplify</span> for sharing with others.
+      </p>
+    </div>
+    <div class="bg-gradient-to-tr from-pink-50 to-blue-200 rounded-2xl py-6 px-8 sm:py-8 sm:px-10 border-2 border-blue-100">
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
+        <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
+          <button 
+            class="py-2 px-2 sm:py-4 sm:px-4 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            (click)="selectedOption = 'text'"
+          >
+            <fa-icon [icon]="faFont" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-3 sm:px-3.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              Text
+            </p>
+            <div [class.hidden]="selectedOption !== 'text'" class="mt-2 h-1 bg-pink-700 rounded-full"></div>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
+          <button 
+            class="py-2 px-2 sm:py-4 sm:px-4 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            (click)="selectedOption = 'url'"
+          >
+            <fa-icon [icon]="faLink" class="inline-flex  bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2 sm:px-2.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700" ></fa-icon>          
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              Url
+            </p>
+            <div [class.hidden]="selectedOption !== 'url'" class="mt-2 h-1 bg-pink-700 rounded-full"></div>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
+          <button 
+            class="py-2 px-2 sm:py-4 sm:px-4 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            (click)="selectedOption = 'email'"  
+          >
+            <fa-icon [icon]="faEnvelope" class="inline-flex  bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2.5 sm:px-3 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              Email
+            </p>
+            <div [class.hidden]="selectedOption !== 'email'" class="mt-2 h-1 bg-pink-700 rounded-full"></div>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
+          <button 
+            class="py-2 px-2 sm:py-4 sm:px-4 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            (click)="selectedOption = 'whatsapp'"
+          >
+            <fa-icon [icon]="faWhatsapp" class="inline-flex  bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2.5 sm:px-3 py-2 sm:py-2.5 text-2xl sm:text-3xl text-pink-700"></fa-icon>
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              Whatsapp
+            </p>
+            <div [class.hidden]="selectedOption !== 'whatsapp'" class="mt-2 h-1 bg-pink-700 rounded-full"></div>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
+          <button 
+            class="py-2 px-2 sm:py-4 sm:px-4 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            (click)="selectedOption = 'wifi'"
+          >
+            <fa-icon [icon]="faWifi" class="inline-flex  bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2 sm:px-2.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              Wifi
+            </p>
+            <div [class.hidden]="selectedOption !== 'wifi'" class="mt-2 h-1 bg-pink-700 rounded-full"></div>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
+          <button 
+            class="py-2 px-2 sm:py-4 sm:px-4 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            (click)="selectedOption = 'socialmedia'"
+          >
+            <fa-icon [icon]="faHashtag" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-3 sm:px-3.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              Social Media
+            </p>
+            <div [class.hidden]="selectedOption !== 'socialmedia'" class="mt-2 h-1 bg-pink-700 rounded-full"></div>
+          </button>
+        </div>
+      </div>
+      @if (selectedOption === 'text') {
+        <app-form-text></app-form-text>
+      }
+      @if (selectedOption === 'url') {
+        <app-form-url></app-form-url>
+      }
+      @if (selectedOption === 'email') {
+        <app-form-email></app-form-email>
+      }
+      @if (selectedOption === 'whatsapp') {
+        <app-form-whatsapp></app-form-whatsapp>
+      }
+      @if (selectedOption === 'wifi') {
+        <app-form-wifi></app-form-wifi>
+      }
+      @if (selectedOption === 'socialmedia') {
+        <app-form-social-media></app-form-social-media>
+      }
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

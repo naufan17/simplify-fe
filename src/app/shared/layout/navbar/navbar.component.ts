@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 
 export class NavbarComponent {
   navbarLinks: { href: string, label: string }[] = [
-    { href: "#Home", label: "Home" },
+    { href: "/", label: "Home" },
     { href: "#Services", label: "Services" },
   ]
 }
