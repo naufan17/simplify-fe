@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCheck, faLink, faQrcode } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faLink, faQrcode, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { NavbarComponent } from '../../shared/layout/navbar/navbar.component';
 import { FooterComponent } from '../../shared/layout/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -21,6 +21,8 @@ export class PageHomeComponent {
   faLink = faLink;
   faQrcode = faQrcode;
   faCheck = faCheck;
+  faChevronDown = faChevronDown;
+  openedIndex: number | null = null;
 
   featureShortenUrl = [
     'Custom your link',
@@ -33,4 +35,27 @@ export class PageHomeComponent {
     'Fully customizable your QR Code',
     'Analtytics and tracking',
   ]
+
+  frequentlyAskedQuestions = [
+    {
+      question: 'What is Simplify?',
+      answer: 'Simplify is a service to shorten url and generate QR code to share with others.'
+    }, 
+    {
+      question: 'How to generate URL Shortener?',
+      answer: 'You can input your long URL to generate short URL.'
+    },
+    {
+      question: 'How to generate QR Code?',
+      answer: 'You can choose option and input your data to generate QR code.'
+    },
+    {
+      question: 'What is QR Code?',
+      answer: 'QR Code is a type of code that can be read by a QR code reader.'
+    },
+  ]
+
+  toggleAccordion(index: number): void {
+    this.openedIndex = this.openedIndex === index ? null : index;
+  }
 }

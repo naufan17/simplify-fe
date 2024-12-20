@@ -12,5 +12,7 @@ export class NavbarComponent {
   navbarLinks: { href: string, label: string }[] = [
     { href: "/", label: "Home" },
     { href: "#Services", label: "Services" },
+    { href: "#IntegrateApi", label: "Integrate API" },
+    { href: "#FAQ", label: "FAQ" },
   ]
 }

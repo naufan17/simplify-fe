@@ -12,6 +12,8 @@ export class FooterComponent {
   footerLinks: { href: string, label: string }[] = [
     { href: "/", label: "Home" },
     { href: "#Services", label: "Services" },
+    { href: "#IntegrateApi", label: "Integrate API" },
+    { href: "#FAQ", label: "FAQ" },
   ]
 
   serviceLinks: { href: string, label: string }[] = [

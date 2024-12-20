@@ -1,7 +1,7 @@
 <div class="bg-gradient-to-tr from-pink-50 to-blue-200 min-h-screen">
   <app-navbar></app-navbar>
   <div id="Home" class="relative px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
-    <div class="grid grid-cols-2 gap-4 my-4 sm:my-0">
+    <div class="grid grid-cols-2 gap-4 my-2 sm:my-4">
       <div class="flex flex-col justify-center items-start">
         <h1 class="mb-4 sm:mb-8 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
           Simplify
@@ -19,22 +19,20 @@
     </div>
   </div>
   <div id="Services" class="relative px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
-    <div class="flex flex-col items-center justify-center max-w-xl my-8 sm:my-12 md:mx-auto lg:max-w-3xl mx-4 sm:mx-8">
-      <h2 class="mb-4 sm:mb-8 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 sm:text-5xl md:mx-auto">
+    <div class="flex flex-col items-center justify-center max-w-xl my-2 sm:my-4 md:mx-auto lg:max-w-3xl mx-4 sm:mx-8">
+      <h2 class="mb-4 sm:mb-8 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 sm:text-4xl md:text-5xl md:mx-auto">
         We offer two services
       </h2>
       <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
         <span class="text-blue-100 bg-blue-800 px-1">Simplify</span> your url into a short link and generate various QR code to <span class="text-pink-100 bg-pink-800 px-1">Simplify</span> for sharing with others.
       </p>
-    </div>
-    <div class="max-w-xl my-4 sm:my-8 md:mx-auto lg:max-w-3xl">
-      <div class="grid grid-cols-2 gap-4 sm:gap-8">
-        <div class="bg-gradient-to-tr from-pink-100 to-white p-4 sm:p-5 rounded-2xl border-2 border-pink-100">
+      <div class="grid grid-cols-2 gap-4 sm:gap-8 ">
+        <div class="bg-gradient-to-tr from-pink-50 to-blue-100 p-4 sm:p-5 rounded-2xl border-2 border-gray-100">
           <div class="flex items-center justify-between">
             <h3 class="font-bold text-lg sm:text-xl font-sans text-gray-800">
               QR Code
             </h3>
-            <fa-icon [icon]="faQrcode" class="bg-pink-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            <fa-icon [icon]="faQrcode" class="bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-3 sm:px-3.5 py-2 sm:py-2.5 text-xl sm:text-2xl text-pink-700"></fa-icon>
           </div>
           <p class="text-sm sm:text-base text-gray-800 font-semibold font-sans">
             Make your QR code to share with others
@@ -64,12 +62,12 @@
             </a>    
           </div>
         </div>
-        <div class="bg-gradient-to-bl from-blue-100 to-white p-4 sm:p-5 rounded-2xl border-2 border-blue-100">
+        <div class="bg-gradient-to-tr from-pink-50 to-blue-100 p-4 sm:p-5 rounded-2xl border-2 border-gray-100">
           <div class="flex items-center justify-between">
             <h3 class="font-bold text-lg sm:text-xl font-sans text-gray-800">
               URL Shortener
             </h3>
-            <fa-icon [icon]="faLink" class="bg-blue-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2 sm:px-2.5 py-1.5 sm:py-2 text-xl sm:text-2xl text-blue-700"></fa-icon>
+            <fa-icon [icon]="faLink" class="bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2 sm:px-2.5 py-1.5 sm:py-2 text-xl sm:text-2xl text-blue-700"></fa-icon>
           </div>
           <p class="text-sm sm:text-base text-gray-800 font-semibold font-sans">
             Shorten your long url into a short link
@@ -101,6 +99,51 @@
         </div>
       </div>
     </div>      
+  </div>
+  <div id="IntegrateApi" class="relative px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-lg md:px-24 lg:px-8 lg:py-8">
+    <div class="flex flex-col my-2 sm:my-4 items-center justify-center bg-gradient-to-tr from-pink-50 to-blue-100 p-8 rounded-2xl border-2 border-gray-100">
+      <h2 class="mb-4 sm:mb-8 font-sans text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-4xl md:mx-auto">
+        Integrate API
+      </h2>
+      <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
+        You can integrate this API into your own project.
+      </p>
+      <a routerLink="documentation" class="inline-flex items-center justify-center h-9 sm:h-10 px-4 sm:px-8 bg-gray-800 text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+        Documentation
+      </a>
+    </div>
+  </div>
+  <div id="FAQ" class="relative px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2 sm:my-4">
+      <div class="flex justify-left items-start">
+        <h1 class="font-sans text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-4xl">
+          Frequently Asked Questions
+        </h1>
+      </div>
+      <div class="flex flex-col space-y-4">
+        @for (faq of frequentlyAskedQuestions; track faq){
+          <div class="border-2 border-gray-100 rounded-xl bg-gradient-to-tr from-pink-50 to-blue-100">
+            <button (click)="toggleAccordion(frequentlyAskedQuestions.indexOf(faq))" class="flex p-2 sm:p-4 items-center justify-between w-full">
+              <p class="font-semibold text-sm sm:text-base font-sans text-gray-800">
+                {{ faq.question }}
+              </p>
+              <fa-icon 
+                [class.rotate-180]="openedIndex === frequentlyAskedQuestions.indexOf(faq)" 
+                [icon]="faChevronDown" 
+                class="text-gray-800 transition-transform duration-300 ease-in-out"
+              ></fa-icon>
+            </button>
+            @if (openedIndex === frequentlyAskedQuestions.indexOf(faq)) {
+              <div class="p-2 sm:p-4">
+                <p class="font-semibold text-sm sm:text-base font-sans text-gray-800">
+                  {{ faq.answer }}
+                </p>
+              </div>
+            }  
+          </div>            
+        }
+      </div>
+    </div>
   </div>
   <app-footer></app-footer>
 </div>
