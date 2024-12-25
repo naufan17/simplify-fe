@@ -9,6 +9,12 @@ import { RouterLink } from '@angular/router';
 })
 
 export class NavbarComponent {
+  isSidebarOpen: boolean = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
   navbarLinks: { href: string, label: string }[] = [
     { href: "/", label: "Home" },
     { href: "#Services", label: "Services" },

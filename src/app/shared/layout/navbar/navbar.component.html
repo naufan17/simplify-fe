@@ -1,8 +1,14 @@
-<nav class="relative top-0 z-50 w-full">
+<nav class="top-0 z-50 w-full">
   <div class="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-4">
     <div class="flex items-center justify-between">
-      <ul class="flex items-center space-x-8 sm:space-x-16">
-        @for (link of navbarLinks; track link.href){
+      <div class="sm:hidden"></div>
+      <button (click)="toggleSidebar()" class="sm:hidden my-2 text-gray-800 hover:text-gray-950">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <ul class="hidden sm:flex items-center space-x-8 sm:space-x-16">
+        @for(link of navbarLinks; track link.href){
           <li>
             <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-950">
               {{ link.label }}
@@ -10,7 +16,7 @@
           </li>
         }
       </ul>
-      <div class="flex items-center">
+      <div class="hidden sm:flex items-center">
         <a routerLink="/login" class="inline-flex items-center justify-center bg-gray-800 text-white text-sm sm:text-base rounded-2xl px-6 md:px-8 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
           Login
         </a>
@@ -18,3 +24,34 @@
     </div>
   </div>
 </nav>
+
+@if(isSidebarOpen) {
+  <div class="fixed inset-0 z-50 flex justify-end">
+    <div (click)="toggleSidebar()" class="fixed inset-0 bg-gray-600 bg-opacity-50"></div>
+    <div class="relative flex-1 flex flex-col max-w-36 w-full bg-blue-100 bg-opacity-75">
+      <div class="absolute top-0 right-0 mr-36 pt-3">
+        <button (click)="toggleSidebar()" class="mr-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:bg-gray-600">
+          <svg class="h-6 w-6 text-gray-800" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-5 flex-1 h-0 overflow-y-auto">
+        <ul class="px-4 space-y-4">
+          @for(link of navbarLinks; track link.href){
+            <li>
+              <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-950">
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+        <div class="p-4">
+          <a routerLink="/login" class="inline-flex items-center justify-center bg-gray-800 text-white text-sm sm:text-base rounded-2xl px-6 md:px-8 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+            Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+}
