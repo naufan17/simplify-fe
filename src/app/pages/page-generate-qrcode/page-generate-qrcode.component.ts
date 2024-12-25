@@ -36,6 +36,43 @@ export class PageGenerateQrcodeComponent {
   faWifi = faWifi;
   faHashtag = faHashtag;
 
+  qrcodeOptions: { 
+    option: string, 
+    name: string, 
+    icon: any 
+  }[] = [
+    {
+      option: 'text',
+      name: 'Text',
+      icon: faFont
+    },
+    {
+      option: 'url',
+      name: 'URL',
+      icon: faLink
+    },
+    {
+      option: 'email',
+      name: 'Email',
+      icon: faEnvelope
+    },
+    {
+      option: 'whatsapp',
+      name: 'WhatsApp',
+      icon: faWhatsapp
+    },
+    {
+      option: 'wifi',
+      name: 'WiFi',
+      icon: faWifi
+    },
+    {
+      option: 'social-media',
+      name: 'Social Media',
+      icon: faHashtag
+    }
+  ];
+
   selectedOption: string = 'text';
   selectOption(option: string) {
     this.selectedOption = option;
