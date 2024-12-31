@@ -10,6 +10,8 @@ import { FormEmailComponent } from './form-email/form-email.component';
 import { FormWhatsappComponent } from './form-whatsapp/form-whatsapp.component';
 import { FormWifiComponent } from './form-wifi/form-wifi.component';
 import { FormSocialMediaComponent } from './form-social-media/form-social-media.component';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { QrcodeService } from '../../services/qrcode/qrcode.service';
 
 @Component({
   selector: 'app-page-generate-qrcode',
@@ -22,13 +24,16 @@ import { FormSocialMediaComponent } from './form-social-media/form-social-media.
     FormEmailComponent,
     FormWhatsappComponent,
     FormWifiComponent,
-    FormSocialMediaComponent
+    FormSocialMediaComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './page-generate-qrcode.component.html',
   styleUrl: './page-generate-qrcode.component.css'
 })
 
 export class PageGenerateQrcodeComponent {
+  qrcode: string = '';
+  selectedOption: string = '';
   faFont = faFont;
   faLink = faLink;
   faEnvelope = faEnvelope;
@@ -73,7 +78,10 @@ export class PageGenerateQrcodeComponent {
     }
   ];
 
-  selectedOption: string = 'text';
+  handleQrcode(qrcode: string) {
+    this.qrcode = qrcode;
+  }
+
   selectOption(option: string) {
     this.selectedOption = option;
   }
