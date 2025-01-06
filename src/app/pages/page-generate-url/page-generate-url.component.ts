@@ -3,6 +3,8 @@ import { NavbarComponent } from '../../shared/layout/navbar/navbar.component';
 import { FooterComponent } from '../../shared/layout/footer/footer.component';
 import { ShortenUrlService } from '../../services/shorten-url/shorten-url.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-page-generate-url',
@@ -10,13 +12,15 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   imports: [
     NavbarComponent,
     FooterComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   templateUrl: './page-generate-url.component.html',
   styleUrls: ['./page-generate-url.component.css']
 })
 
 export class PageGenerateUrlComponent {
+  faTimes = faTimes;
   urlShort: string = '';
   isCopied: boolean = false;
   shotenUrlForm = new FormGroup({
@@ -45,6 +49,10 @@ export class PageGenerateUrlComponent {
         }
       );
     }
+  }
+
+  closeModal() {
+    this.urlShort = '';
   }
 
   copyToClipboard() {

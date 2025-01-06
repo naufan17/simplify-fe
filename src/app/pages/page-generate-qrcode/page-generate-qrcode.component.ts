@@ -10,8 +10,8 @@ import { FormEmailComponent } from './form-email/form-email.component';
 import { FormWhatsappComponent } from './form-whatsapp/form-whatsapp.component';
 import { FormWifiComponent } from './form-wifi/form-wifi.component';
 import { FormSocialMediaComponent } from './form-social-media/form-social-media.component';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { QrcodeService } from '../../services/qrcode/qrcode.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-page-generate-qrcode',
@@ -40,6 +40,7 @@ export class PageGenerateQrcodeComponent {
   faWhatsapp = faWhatsapp;
   faWifi = faWifi;
   faHashtag = faHashtag;
+  faTimes = faTimes;
 
   qrcodeOptions: { 
     option: string, 
@@ -84,5 +85,16 @@ export class PageGenerateQrcodeComponent {
 
   selectOption(option: string) {
     this.selectedOption = option;
+  }
+
+  downloadQrcode() {
+    const link = document.createElement('a');
+    link.href = this.qrcode;
+    link.download = 'qrcode.png';
+    link.click();
+  }
+
+  closeModal() {
+    this.qrcode = '';
   }
 }
