@@ -31,13 +31,13 @@ export class PageGenerateUrlComponent {
   constructor(private shortenUrlService: ShortenUrlService) {}
 
   onSubmit() {
-    if (this.shotenUrlForm.valid) {
+    if(this.shotenUrlForm.valid) {
       this.shortenUrlService.postShortUrl(
         this.shotenUrlForm.value.urlOrigin ?? '', 
         this.shotenUrlForm.value.id ?? ''
       ).subscribe(
         (response: any) => {
-          if (response.statusCode === 201) {
+          if(response.statusCode === 201) {
             console.log('URL shortened successfully', response);
             this.urlShort = response.data.url;
           } else {
