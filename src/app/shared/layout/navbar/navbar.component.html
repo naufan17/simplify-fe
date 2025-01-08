@@ -7,7 +7,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
-      <ul class="hidden sm:flex items-center space-x-8 sm:space-x-16">
+      <ul class="hidden sm:flex items-center space-x-12 lg:space-x-16">
         @for(link of navbarLinks; track link.href){
           <li>
             <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-950">
@@ -16,9 +16,12 @@
           </li>
         }
       </ul>
-      <div class="hidden sm:flex items-center">
-        <a routerLink="/login" class="inline-flex items-center justify-center bg-gray-800 text-white text-sm sm:text-base rounded-2xl px-6 md:px-8 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+      <div class="hidden sm:flex items-center space-x-2 sm:space-x-4">
+        <a routerLink="/login" class="inline-flex items-center justify-center text-gray-800 border-2 border-gray-800 text-sm sm:text-base rounded-xl px-4 md:px-6 py-1.5 md:py-2 font-medium font-sans hover:bg-gray-800 hover:text-gray-100">
           Login
+        </a>
+        <a routerLink="/register" class="inline-flex items-center justify-center bg-gray-800 text-white border-2 border-gray-800 text-sm sm:text-base rounded-xl px-4 md:px-6 py-1.5 md:py-2 font-medium font-sans hover:bg-gray-900 hover:border-gray-900 hover:text-gray-100">
+          Get Started
         </a>
       </div>
     </div>
@@ -46,9 +49,12 @@
             </li>
           }
         </ul>
-        <div class="p-4">
-          <a routerLink="/login" class="inline-flex items-center justify-center bg-gray-800 text-white text-sm sm:text-base rounded-2xl px-6 md:px-8 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+        <div class="mt-5 ml-4 space-y-4">
+          <a routerLink="/login" class="inline-flex items-center justify-center bg-gray-800 text-white text-sm sm:text-base rounded-xl px-4 py-2 md:py-2.5 font-sans hover:bg-gray-900 hover:text-gray-100">
             Login
+          </a>
+          <a routerLink="/register" class="inline-flex items-center justify-center bg-gray-800 text-white text-sm sm:text-base rounded-xl px-4 py-2 md:py-2.5 font-sans hover:bg-gray-900 hover:text-gray-100">
+            Get Started
           </a>
         </div>
       </div>
