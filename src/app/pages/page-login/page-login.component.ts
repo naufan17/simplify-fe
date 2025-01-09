@@ -20,6 +20,7 @@ import { AlertErrorComponent } from '../../shared/ui/alert-error/alert-error.com
 export class PageLoginComponent {
   isLoading: boolean = false;
   errorMessage: string = '';
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -39,6 +40,7 @@ export class PageLoginComponent {
       ).subscribe((response: any) => {
         this.isLoading = false;
         if (response.statusCode === 200) {
+          this.isLoading = false;
           this.router.navigate(['dashboard']);
         } else {
           this.errorMessage = response.message;
