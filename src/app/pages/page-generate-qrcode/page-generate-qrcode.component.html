@@ -59,25 +59,11 @@
         }
       }
     @if(qrcode) {
-      <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div class="bg-gradient-to-tr w-auto from-pink-50 to-blue-200 rounded-2xl py-4 px-5 sm:py-8 sm:px-10 border-2 border-gray-100">
-          <div class="flex justify-end mb-4">
-            <button (click)="closeModal()" class="inline-flex items-center justify-center">
-              <fa-icon [icon]="faTimes" class="text-xl sm:text-2xl text-pink-800 hover:text-pink-900"></fa-icon>
-            </button>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <img 
-              class="shadow-lg rounded-3xl"
-              src="{{ qrcode }}"
-              alt=""
-            >          
-            <button (click)="downloadQrcode()" class="mt-4 sm:mt-8 bg-pink-700 text-white text-sm sm:text-base rounded-xl px-4 md:px-6 py-2 md:py-2.5 font-medium font-sans hover:bg-pink-800 hover:text-pink-100">
-              Download
-            </button>
-          </div>
-        </div>        
-      </div>        
+      <app-modal-qrcode 
+        [qrcode]="qrcode"
+        (closeModalEvent)="closeModal()"
+        (downloadQrcodeEvent)="downloadQrcode()"
+      ></app-modal-qrcode>
     }
   </div>
   <app-footer></app-footer>

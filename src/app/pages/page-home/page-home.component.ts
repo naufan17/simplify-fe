@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { faCheck, faLink, faQrcode, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faLink, faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { NavbarComponent } from '../../shared/layout/navbar/navbar.component';
 import { FooterComponent } from '../../shared/layout/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterLink } from '@angular/router';
+import { AccordionComponent } from '../../shared/ui/accordion/accordion.component';
 
 @Component({
   selector: 'app-page-home',
@@ -11,7 +12,8 @@ import { RouterLink } from '@angular/router';
     RouterLink,
     FontAwesomeModule,
     NavbarComponent, 
-    FooterComponent
+    FooterComponent,
+    AccordionComponent
   ],
   templateUrl: './page-home.component.html',
   styleUrl: './page-home.component.css'
@@ -21,7 +23,6 @@ export class PageHomeComponent {
   faLink = faLink;
   faQrcode = faQrcode;
   faCheck = faCheck;
-  faChevronDown = faChevronDown;
   openedIndex: number | null = null;
 
   featureShortenUrl = [

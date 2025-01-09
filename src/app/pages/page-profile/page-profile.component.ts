@@ -10,7 +10,8 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 
 export class PageProfileComponent {
-  user: any;
+  user: { name: string, email: string, phoneNumber: string } = { name: '', email: '', phoneNumber: '' };
+  isLoading: boolean = false;
 
   constructor(private authService: AuthService) {
     this.user = this.authService.getProfile().subscribe((response: any) => {

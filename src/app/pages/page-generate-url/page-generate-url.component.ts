@@ -7,6 +7,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoadingButtonComponent } from '../../shared/ui/loading-button/loading-button.component';
 import { AlertErrorComponent } from '../../shared/ui/alert-error/alert-error.component';
+import { ModalShorthenUrlComponent } from '../../shared/ui/modal-shorthen-url/modal-shorthen-url.component';
 
 @Component({
   selector: 'app-page-generate-url',
@@ -17,7 +18,8 @@ import { AlertErrorComponent } from '../../shared/ui/alert-error/alert-error.com
     ReactiveFormsModule,
     FontAwesomeModule,
     LoadingButtonComponent,
-    AlertErrorComponent
+    AlertErrorComponent,
+    ModalShorthenUrlComponent
   ],
   templateUrl: './page-generate-url.component.html',
   styleUrls: ['./page-generate-url.component.css']

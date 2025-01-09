@@ -11,8 +11,7 @@ import { FormWhatsappComponent } from './form-whatsapp/form-whatsapp.component';
 import { FormWifiComponent } from './form-wifi/form-wifi.component';
 import { FormSocialMediaComponent } from './form-social-media/form-social-media.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { LoadingButtonComponent } from '../../shared/ui/loading-button/loading-button.component';
+import { ModalQrcodeComponent } from '../../shared/ui/modal-qrcode/modal-qrcode.component';
 
 @Component({
   selector: 'app-page-generate-qrcode',
@@ -26,7 +25,8 @@ import { LoadingButtonComponent } from '../../shared/ui/loading-button/loading-b
     FormWhatsappComponent,
     FormWifiComponent,
     FormSocialMediaComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalQrcodeComponent
   ],
   templateUrl: './page-generate-qrcode.component.html',
   styleUrl: './page-generate-qrcode.component.css'
@@ -41,7 +41,6 @@ export class PageGenerateQrcodeComponent {
   faWhatsapp = faWhatsapp;
   faWifi = faWifi;
   faHashtag = faHashtag;
-  faTimes = faTimes;
 
   qrcodeOptions: { 
     option: string, 

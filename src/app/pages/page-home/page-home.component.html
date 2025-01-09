@@ -128,25 +128,10 @@
       </div>
       <div class="flex flex-col space-y-4">
         @for (faq of frequentlyAskedQuestions; track faq){
-          <div class="border-2 border-gray-100 rounded-xl bg-gradient-to-tr from-pink-50 to-blue-100">
-            <button (click)="toggleAccordion(frequentlyAskedQuestions.indexOf(faq))" class="flex p-2 sm:p-4 items-center justify-between w-full">
-              <p class="font-semibold text-sm sm:text-base font-sans text-gray-800">
-                {{ faq.question }}
-              </p>
-              <fa-icon 
-                [class.rotate-180]="openedIndex === frequentlyAskedQuestions.indexOf(faq)" 
-                [icon]="faChevronDown" 
-                class="text-gray-800 transition-transform duration-300 ease-in-out"
-              ></fa-icon>
-            </button>
-            @if (openedIndex === frequentlyAskedQuestions.indexOf(faq)) {
-              <div class="p-2 sm:p-4">
-                <p class="font-semibold text-sm sm:text-base font-sans text-gray-800">
-                  {{ faq.answer }}
-                </p>
-              </div>
-            }  
-          </div>            
+          <app-accordion 
+            [faq]="faq" 
+            [frequentlyAskedQuestions]="frequentlyAskedQuestions" 
+          ></app-accordion>
         }
       </div>
     </div>
