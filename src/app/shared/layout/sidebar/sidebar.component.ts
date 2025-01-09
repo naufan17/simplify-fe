@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGear, faHouse, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faHouse, faRightFromBracket, faUser, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,11 +18,12 @@ export class SidebarComponent {
   faHouse = faHouse;
   faRightFromBracket = faRightFromBracket;
   faUser = faUser;
-  faGear = faGear;
+  faKey = faKey;
+  faClockRotateLeft = faClockRotateLeft;
 
   constructor(private authService: AuthService) {}
 
-  logout() {
+  logout(): void {
     this.authService.logout();
   }
 }

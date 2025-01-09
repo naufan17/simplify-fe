@@ -21,5 +21,5 @@ export class FooterComponent {
     { href: "/generate/qrcode", label: "QR Code" },
   ]
 
-  dateYear = new Date().getFullYear();
+  dateYear: number = new Date().getFullYear();
 }

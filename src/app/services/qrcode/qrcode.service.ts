@@ -11,27 +11,27 @@ export class QrcodeService {
   
   constructor(private http: HttpClient) {}
 
-  postQrcodeText(text: string) {
+  postQrcodeText(text: string): any {
     return this.http.post(`${this.apiUrl}/qrcode/text`, { text })
   }
 
-  postQrcodeUrl(url: string) {
+  postQrcodeUrl(url: string): any {
     return this.http.post(`${this.apiUrl}/qrcode/url`, { url })
   }
 
-  postQrcodeEmail(email: string) {
+  postQrcodeEmail(email: string): any {
     return this.http.post(`${this.apiUrl}/qrcode/email`, { email })
   }
 
-  postQrcodeWhatsapp(whatsapp: string) {
+  postQrcodeWhatsapp(whatsapp: string): any {
     return this.http.post(`${this.apiUrl}/qrcode/whatsapp`, { whatsapp })
   }
 
-  postQrcodeWifi(ssid: string, password: string, encryption: string) {
+  postQrcodeWifi(ssid: string, password: string, encryption: string): any {
     return this.http.post(`${this.apiUrl}/qrcode/wifi`, { ssid, password, encryption })
   }
 
-  postQrcodeSocialMedia(username: string, socialMedia: string) {
+  postQrcodeSocialMedia(username: string, socialMedia: string): any {
     return this.http.post(`${this.apiUrl}/qrcode/social-media`, { username, socialMedia })
   }
 }

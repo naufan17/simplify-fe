@@ -10,7 +10,7 @@ export class ShortenUrlService {
   private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
-  postShortUrl(urlOrigin: string, alias?: string) {
+  postShortUrl(urlOrigin: string, alias?: string): any {
     return this.http.post(`${this.apiUrl}/shorten-url`, {
       urlOrigin,
       alias

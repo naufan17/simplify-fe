@@ -1,12 +1,28 @@
 <app-sidebar></app-sidebar>
 <div class="bg-gradient-to-tr from-pink-50 to-blue-200 min-h-screen sm:ml-48 md:ml-64">
-  <div class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
-    <div class="flex flex-col items-center justify-center max-w-xl my-8 sm:my-12 md:mx-auto lg:max-w-3xl mx-4 sm:mx-8">
-      <h2 class="mb-4 sm:mb-8 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 sm:text-5xl md:mx-auto">
-        This is Profile Page
+  <div class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8 lg:py-10">
+    <div class="grid grid-cols-3 items-center  my-8 mx-8 sm:my-12 sm:mx-12">
+      <img 
+        src="https://res.cloudinary.com/ddpbwjjfz/image/upload/v1706756352/profile/dqfxsphjjtbfwt4v62gv.jpg" 
+        alt="User Profile"
+        class="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 rounded-full"
+      >
+      <h2 class="col-span-2 font-sans text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-3xl md:text-4xl">
+        {{ user.name }}
       </h2>
-      <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
-        This page is will be available soon. Stay tuned!
+    </div>
+    <div class="grid grid-cols-3  my-8 mx-8 sm:my-12 sm:mx-12">
+      <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
+        Email
+      </p>
+      <p class="col-span-2 mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
+        {{ user.email }}
+      </p>
+      <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
+        Phone Number
+      </p>
+      <p class="col-span-2 mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
+        {{ user.phoneNumber }}
       </p>
     </div>
   </div>
