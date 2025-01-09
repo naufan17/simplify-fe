@@ -1,29 +1,90 @@
-<app-sidebar></app-sidebar>
-<div class="bg-gradient-to-tr from-pink-50 to-blue-200 min-h-screen sm:ml-48 md:ml-64">
-  <div class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8 lg:py-10">
-    <div class="grid grid-cols-3 items-center  my-8 mx-8 sm:my-12 sm:mx-12">
-      <img 
-        src="https://res.cloudinary.com/ddpbwjjfz/image/upload/v1706756352/profile/dqfxsphjjtbfwt4v62gv.jpg" 
-        alt="User Profile"
-        class="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 rounded-full"
-      >
-      <h2 class="col-span-2 font-sans text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-3xl md:text-4xl">
-        {{ user.name }}
-      </h2>
+<div class="bg-gradient-to-tr from-pink-50 to-blue-200 min-h-screen">
+  <app-sidebar></app-sidebar>
+  <div class="sm:ml-48 md:ml-64">
+    <div class="relative px-4 py-5 mx-auto w-full sm:min-w-xl md:max-w-screen-md lg:px-8 lg:py-10">
+      <div class="bg-gray-100 rounded-2xl py-4 px-5 sm:py-8 sm:px-10 shadow-md">
+        <div class="grid grid-cols-3 items-center">
+          <img 
+            src="https://res.cloudinary.com/ddpbwjjfz/image/upload/v1706756352/profile/dqfxsphjjtbfwt4v62gv.jpg" 
+            alt="User Profile"
+            class="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 rounded-full"
+          >
+        </div>
+        <div class="grid grid-cols-3 items-center mt-8 sm:mt-12 space-y-4 sm:space-y-5">
+          <label for="name" class="font-medium font-sans text-sm sm:text-base text-gray-800">
+            Name
+          </label>
+          <input 
+            type="text" 
+            id="name"
+            name="name"
+            required
+            value="{{ user.name }}"
+            class="col-span-2 w-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 font-sans text-sm text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200"
+          >
+          <label for="email" class="font-medium font-sans text-sm sm:text-base text-gray-800">
+            Email
+          </label>
+          <input 
+            type="email" 
+            id="email"
+            name="email"
+            required
+            value="{{ user.email }}"
+            class="col-span-2 w-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 font-sans text-sm text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200"
+          >
+          <label for="phoneNumber" class="font-medium font-sans text-sm sm:text-base text-gray-800">
+            Phone Number
+          </label>
+          <input 
+            type="number" 
+            id="phoneNumber"
+            name="phoneNumber"
+            required
+            value="{{ user.phoneNumber }}"
+            class="col-span-2 w-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 font-sans text-sm text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200"
+          >
+        </div>
+        <div class="flex flex-row justify-end items-center mt-6 sm:mt-8">
+          <button class="bg-gray-800 text-white text-sm sm:text-base rounded-xl px-4 sm:px-6 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+            Update Profile
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="grid grid-cols-3  my-8 mx-8 sm:my-12 sm:mx-12">
-      <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
-        Email
-      </p>
-      <p class="col-span-2 mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
-        {{ user.email }}
-      </p>
-      <p class="mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
-        Phone Number
-      </p>
-      <p class="col-span-2 mb-4 sm:mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg">
-        {{ user.phoneNumber }}
-      </p>
+    <div class="relative px-4 mx-auto w-full sm:min-w-xl md:max-w-screen-md lg:px-8">
+      <span class="inline-block my-2 bg-gray-300 h-1 w-full rounded-full"></span>
+    </div>
+    <div class="relative px-4 py-5 mx-auto w-full sm:min-w-xl md:max-w-screen-md lg:px-8 lg:py-10">
+      <div class="bg-gray-100 rounded-2xl py-4 px-5 sm:py-8 sm:px-10 shadow-md">
+        <div class="grid grid-cols-3 items-center space-y-4 sm:space-y-5">
+          <label for="password" class="font-medium font-sans text-sm sm:text-base text-gray-800">
+            Password
+          </label>
+          <input 
+            type="password" 
+            id="password"
+            name="password"
+            required
+            class="col-span-2 w-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 font-sans text-sm text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200"
+          >
+          <label for="confirmPassword" class="font-medium font-sans text-sm sm:text-base text-gray-800">
+            Confirm Password
+          </label>
+          <input 
+            type="password" 
+            id="confirmPassword"
+            name="confirmPassword"
+            required
+            class="col-span-2 w-full px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-200 font-sans text-sm text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200"
+          >
+        </div>
+        <div class="flex flex-row justify-end items-center mt-6 sm:mt-8">
+          <button class="bg-gray-800 text-white text-sm sm:text-base rounded-xl px-4 sm:px-6 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+            Update Password
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
