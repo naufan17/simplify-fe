@@ -10,12 +10,15 @@
       </p>
     </div>
     <form [formGroup]="shotenUrlForm" (ngSubmit)="onSubmit()" class="bg-gradient-to-tr from-pink-50 to-blue-200 my-4 sm:my-8 rounded-2xl py-4 px-5 sm:py-8 sm:px-10 border-2 border-gray-100">
+      @if(errorMessage) {
+        <app-alert-error [errorMessage]="errorMessage" (clearMessage)="clearMessage()"></app-alert-error>
+      }
       <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
         <label for="urlOrigin" class="font-medium font-sans text-sm sm:text-base text-gray-800">
           Paste your long url
         </label>
         <input 
-          type="text" 
+          type="url" 
           id="urOriginl" 
           name="urlOrigin"
           formControlName="urlOrigin"
@@ -23,10 +26,17 @@
           required
           class="w-full px-2.5 sm:px-3 py-1.5 sm:py-2 border-2 font-sans border-blue-200 rounded-xl focus:outline-none focus:border-blue-400 placeholder:text-blue-300 focus:placeholder:text-blue-100"
         >
+        @if(shotenUrlForm.get('urlOrigin')?.invalid && shotenUrlForm.get('urlOrigin')?.touched) {
+          @if(shotenUrlForm.get('urlOrigin')?.errors?.['required']) {
+            <span class="text-red-600 ml-1 text-sm sm:text-base">URL is required</span>
+          } @else if(shotenUrlForm.get('urlOrigin')?.errors?.['url']) {
+            <span class="text-red-600 ml-1 text-sm sm:text-base">Invalid URL format</span>
+          }
+        }
       </div>
       <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
         <label for="id" class="font-medium font-sans text-sm sm:text-base text-gray-800">
-          Custom ID (Optional)
+          Custom ID <span class="text-blue-700">(Optional)</span>
         </label>
         <input 
           type="text" 
@@ -39,7 +49,11 @@
       </div>
       <div class="flex justify-end mt-6">
         <button type="submit" [disabled]="!shotenUrlForm.valid" disabled class="bg-blue-700 text-white text-sm sm:text-base rounded-xl px-6 md:px-8 py-2 md:py-2.5 font-medium font-sans hover:bg-blue-800 hover:text-blue-100">
-          Generate
+          @if(isLoading) {
+            <app-loading-button></app-loading-button>
+          } @else {
+            Generate
+          }
         </button>  
       </div>
     </form>

@@ -12,6 +12,7 @@ import { FormWifiComponent } from './form-wifi/form-wifi.component';
 import { FormSocialMediaComponent } from './form-social-media/form-social-media.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { LoadingButtonComponent } from '../../shared/ui/loading-button/loading-button.component';
 
 @Component({
   selector: 'app-page-generate-qrcode',

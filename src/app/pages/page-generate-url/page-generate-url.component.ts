@@ -5,6 +5,8 @@ import { ShortenUrlService } from '../../services/shorten-url/shorten-url.servic
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoadingButtonComponent } from '../../shared/ui/loading-button/loading-button.component';
+import { AlertErrorComponent } from '../../shared/ui/alert-error/alert-error.component';
 
 @Component({
   selector: 'app-page-generate-url',
@@ -13,7 +15,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavbarComponent,
     FooterComponent,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LoadingButtonComponent,
+    AlertErrorComponent
   ],
   templateUrl: './page-generate-url.component.html',
   styleUrls: ['./page-generate-url.component.css']
@@ -23,6 +27,8 @@ export class PageGenerateUrlComponent {
   faTimes = faTimes;
   urlShort: string = '';
   isCopied: boolean = false;
+  isLoading: boolean = false;
+  errorMessage: string = '';
   shotenUrlForm = new FormGroup({
     urlOrigin: new FormControl(''),
     id: new FormControl(''),  
@@ -32,22 +38,23 @@ export class PageGenerateUrlComponent {
 
   onSubmit() {
     if(this.shotenUrlForm.valid) {
+      this.isLoading = true;
       this.shortenUrlService.postShortUrl(
         this.shotenUrlForm.value.urlOrigin ?? '', 
         this.shotenUrlForm.value.id ?? ''
-      ).subscribe(
-        (response: any) => {
-          if(response.statusCode === 201) {
-            console.log('URL shortened successfully', response);
-            this.urlShort = response.data.url;
-          } else {
-            console.error('Unexpected response code', response.message);
-          }
-        },
-        (error: any) => {
-          console.error('Failed to shorten URL', error);
+      ).subscribe((response: any) => {
+        if(response.statusCode === 201) {
+          this.isLoading = false;
+          this.urlShort = response.data.url;
+        } else {
+          this.errorMessage = response.message;
         }
-      );
+      },
+      (error: any) => {
+        this.isLoading = false;
+        this.errorMessage = "Error generating short url";
+        console.error('Error generating short url', error);
+      });
     }
   }
 
@@ -61,5 +68,9 @@ export class PageGenerateUrlComponent {
     setTimeout(() => {
       this.isCopied = false;
     }, 2000);
+  }
+
+  clearMessage() {
+    this.errorMessage = '';
   }
 }

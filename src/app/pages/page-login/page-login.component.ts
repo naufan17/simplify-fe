@@ -3,13 +3,15 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { LoadingButtonComponent } from '../../shared/ui/loading-button/loading-button.component';
+import { AlertErrorComponent } from '../../shared/ui/alert-error/alert-error.component';
 
 @Component({
   selector: 'app-page-login',
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    LoadingButtonComponent
+    LoadingButtonComponent,
+    AlertErrorComponent
   ],
   templateUrl: './page-login.component.html',
   styleUrl: './page-login.component.css'
