@@ -48,16 +48,16 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/auth/register`, { name, email, password, confirmPassword });
   }
 
+  updatePassord(password: string, confirmPassword: string): any {
+    const accessToken = this.getAccessToken();
+    const headers = { Authorization: `Bearer ${accessToken}` };
+    return this.http.post(`${this.apiUrl}/auth/change-password`, { password, confirmPassword }, { headers });
+  }
+
   logout(): void {
     localStorage.removeItem('accessToken');
     this.http.get(`${this.apiUrl}/auth/logout`);
     this.router.navigate(['/login']);
-  }
-
-  getProfile(): any {
-    const accessToken = this.getAccessToken();
-    const headers = { Authorization: `Bearer ${accessToken}` };
-    return this.http.get(`${this.apiUrl}/user/profile`, { headers });
   }
 }
 
