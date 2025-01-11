@@ -10,7 +10,6 @@ import { RouterLink } from '@angular/router';
 
 export class FooterComponent {
   footerLinks: { href: string, label: string }[] = [
-    { href: "/", label: "Home" },
     { href: "#Services", label: "Services" },
     { href: "#IntegrateApi", label: "API's" },
     { href: "#FAQ", label: "FAQ" },

@@ -8,7 +8,10 @@
         </svg>
       </button>
       <ul class="hidden sm:flex items-center space-x-12 lg:space-x-16">
-        @for(link of navbarLinks; track link.href){
+        <a routerLink="/">
+          <img src="/src/assets/images/simplify.png" alt="Simplify Logo">
+        </a>
+          @for(link of navbarLinks; track link.href){
           <li>
             <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-950">
               {{ link.label }}
@@ -49,6 +52,9 @@
       </div>
       <div class="mt-5 flex-1 h-0 overflow-y-auto">
         <ul class="px-4 space-y-4">
+          <a routerLink="/">
+            <img src="/src/assets/images/simplify.png" alt="Simplify Logo">
+          </a>
           @for(link of navbarLinks; track link.href){
             <li>
               <a href="{{ link.href }}" class="font-medium font-sans text-sm sm:text-base text-gray-800 hover:text-gray-950">

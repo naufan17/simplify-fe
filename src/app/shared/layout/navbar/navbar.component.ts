@@ -12,6 +12,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class NavbarComponent {
   isSidebarOpen: boolean = false;
   isLoggedIn: boolean;
+  logo = 'assets/images/simplify.png';
 
   constructor(private authService: AuthService) {
     this.isLoggedIn = this.authService.isLoggedIn();
@@ -22,7 +23,6 @@ export class NavbarComponent {
   }
 
   navbarLinks: { href: string, label: string }[] = [
-    { href: "/", label: "Home" },
     { href: "#Services", label: "Services" },
     { href: "#IntegrateApi", label: "API's" },
     { href: "#FAQ", label: "FAQ" },

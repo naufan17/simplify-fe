@@ -2,6 +2,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
   imports: [RouterOutlet],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    CookieService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

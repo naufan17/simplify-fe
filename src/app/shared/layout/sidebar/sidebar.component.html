@@ -1,5 +1,8 @@
 <div class="sidebar fixed top-0 left-0 h-full sm:w-48 md:w-64 px-4 bg-transparent">
-  <ul class="flex flex-row sm:flex-col sm:mt-12">
+  <ul class="flex flex-row sm:flex-col sm:mt-4">
+    <a routerLink="/" class="hidden sm:flex flex-col sm:flex-row items-center px-4 md:px-6 py-6 w-22 sm:w-auto">
+      <img src="src/assets/images/simplify.png" alt="Simplify Logo">
+    </a>
     <li class="flex flex-col sm:flex-row items-center px-4 md:px-6 py-2 w-22 sm:w-auto hover:bg-gradient-to-tr from-pink-50 to-blue-100 rounded-lg hover:shadow-sm">
       <fa-icon [icon]="faHouse" class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"></fa-icon>
       <a routerLink="/dashboard" class="mt-2 sm:mt-0 sm:ml-2 text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900">
