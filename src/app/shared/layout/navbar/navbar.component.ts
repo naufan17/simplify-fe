@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class NavbarComponent {
   isSidebarOpen: boolean = false;
   isLoggedIn: boolean;
-  logo = 'assets/images/simplify.png';
+  logo = '/src/assets/logo/simplify.svg';
 
   constructor(private authService: AuthService) {
     this.isLoggedIn = this.authService.isLoggedIn();

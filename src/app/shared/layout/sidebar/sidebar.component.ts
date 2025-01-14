@@ -20,6 +20,7 @@ export class SidebarComponent {
   faUser = faUser;
   faKey = faKey;
   faClockRotateLeft = faClockRotateLeft;
+  logo = '/src/assets/logo/simplify.svg'
 
   constructor(private authService: AuthService) {}
 

@@ -9,6 +9,8 @@ import { RouterLink } from '@angular/router';
 })
 
 export class FooterComponent {
+  logo = '/src/assets/logo/simplify.svg'
+
   footerLinks: { href: string, label: string }[] = [
     { href: "#Services", label: "Services" },
     { href: "#IntegrateApi", label: "API's" },
