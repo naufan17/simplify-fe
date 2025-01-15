@@ -3,10 +3,12 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faKey, faHouse, faRightFromBracket, faUser, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
   imports: [
+    CommonModule,
     RouterLink,
     FontAwesomeModule
   ],
@@ -20,7 +22,18 @@ export class SidebarComponent {
   faUser = faUser;
   faKey = faKey;
   faClockRotateLeft = faClockRotateLeft;
-  logo = '/src/assets/logo/simplify.svg'
+  logo = '/src/assets/logo/simplify.svg';
+  isActive = false;
+
+  navbarLinksUp: { href: string, label: string, icon: any }[] = [
+    { href: "/dashboard", label: "Dashboard", icon: faHouse },
+    { href: "/history", label: "History", icon: faClockRotateLeft },
+  ];
+
+  navbarLinksDown: { href: string, label: string, icon: any }[] = [
+    { href: "/account", label: "Account", icon: faUser },
+    { href: "/api-key", label: "Api Key", icon: faKey },
+  ];
 
   constructor(private authService: AuthService) {}
 

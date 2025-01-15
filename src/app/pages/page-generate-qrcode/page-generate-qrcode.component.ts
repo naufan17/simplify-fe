@@ -12,10 +12,12 @@ import { FormWifiComponent } from './form-wifi/form-wifi.component';
 import { FormSocialMediaComponent } from './form-social-media/form-social-media.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalQrcodeComponent } from '../../shared/ui/modal-qrcode/modal-qrcode.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-page-generate-qrcode',
   imports: [
+    CommonModule,
     NavbarComponent,
     FooterComponent,
     FontAwesomeModule,
@@ -34,7 +36,7 @@ import { ModalQrcodeComponent } from '../../shared/ui/modal-qrcode/modal-qrcode.
 
 export class PageGenerateQrcodeComponent {
   qrcode: string = '';
-  selectedOption: string = '';
+  selectedOption: string = 'text';
   faFont = faFont;
   faLink = faLink;
   faEnvelope = faEnvelope;

@@ -15,10 +15,11 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private cookieService: CookieService
   ) { }
 
   postLogin(email: string, password: string): any {
-    return this.http.post(`${this.apiUrl}/auth/login`, { email, password }).pipe(
+    return this.http.post(`${this.apiUrl}/auth/login`, { email, password }, { withCredentials: true }).pipe(
       tap((response: any) => {
         localStorage.setItem('accessToken', response.data.accessToken);
       }),
@@ -33,8 +34,12 @@ export class AuthService {
     return localStorage.getItem('accessToken');
   }
 
+  removeAccessToken(): void {
+    localStorage.removeItem('accessToken');
+  }
+
   refreshAccessToken(): any {
-    return this.http.get(`${this.apiUrl}/auth/refresh-token`, {}).pipe(
+    return this.http.get(`${this.apiUrl}/auth/refresh-token`, { withCredentials: true }).pipe(
       tap((response: any) => {
         localStorage.setItem('accessToken', response.data.accessToken);
       }),
@@ -52,13 +57,15 @@ export class AuthService {
   updatePassord(password: string, confirmPassword: string): any {
     const accessToken = this.getAccessToken();
     const headers = { Authorization: `Bearer ${accessToken}` };
-    return this.http.post(`${this.apiUrl}/auth/change-password`, { password, confirmPassword }, { headers });
+    return this.http.post(`${this.apiUrl}/auth/change-password`, { password, confirmPassword }, { headers, withCredentials: true });
   }
 
   logout(): void {
-    localStorage.removeItem('accessToken');
-    this.http.get(`${this.apiUrl}/auth/logout`);
-    this.router.navigate(['/login']);
+    this.http.get(`${this.apiUrl}/auth/logout`, { withCredentials: true }).subscribe(() => {
+      this.removeAccessToken();
+      this.cookieService.delete('refreshToken');
+      this.router.navigate(['/login']);
+    })
   }
 }
 

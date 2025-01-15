@@ -12,34 +12,34 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const accessToken = this.authService.getAccessToken();
-
-    if (accessToken) req = this.addToken(req, accessToken);
+    if (accessToken) req = this.addTokenHeader(req, accessToken);
 
     return next.handle(req).pipe(
       catchError((error) => {
         if (error instanceof HttpErrorResponse && error.status === 401) {
-          return this.handle401Error(req, next);
+          return this.handleUnauthorized(req, next);
         }
         return throwError(() => error);
       })
     );
   }
 
-  private addToken(req: HttpRequest<any>, accessToken: any) {
+  private addTokenHeader(req: HttpRequest<any>, accessToken: any) {
     return req.clone({
       headers: req.headers.set('Authorization', 'Bearer ' + accessToken)
     });
   }
-
-  private handle401Error(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+ 
+  private handleUnauthorized(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.isRefreshingToken) {
       this.isRefreshingToken = true;
       this.refreshTokenSubject.next(null);
+
       return this.authService.refreshAccessToken().pipe(
         switchMap((response: any) => {
           this.isRefreshingToken = false;
           this.refreshTokenSubject.next(response.data.accessToken);
-          return next.handle(this.addToken(req, response.data.accessToken));
+          return next.handle(this.addTokenHeader(req, response.data.accessToken));
         }),
         catchError((error) => {
           this.isRefreshingToken = false;
@@ -52,7 +52,7 @@ export class AuthInterceptor implements HttpInterceptor {
         filter(accessToken => accessToken !== null),
         take(1),
         switchMap((response: any) => {
-          return next.handle(this.addToken(req, response.data.accesstoken));
+          return next.handle(this.addTokenHeader(req, response.data.accesstoken));
         })
       );
     }

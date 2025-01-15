@@ -9,32 +9,27 @@
         Generate various QR code to <span class="text-pink-100 bg-pink-800 px-1">Simplify</span> for sharing with others.
       </p>
     </div>
-    <div class="flex flex-col items-center justify-center max-w-xl my-4 sm:my-8 md:mx-auto lg:max-w-3xl mx-4 sm:mx-8">
-      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
+    <div class="flex flex-col items-center justify-center max-w-xl my-6 sm:my-8 md:mx-auto lg:max-w-3xl mx-6 sm:mx-8">
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-5 sm:gap-6">
         @for(qrcodeOption of qrcodeOptions; track qrcodeOption){
-          <div class="flex flex-col items-center justify-center mb-2 sm:mb-4">
-            <button 
-              class="py-2 px-2 sm:py-4 sm:px-4  rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
-              (click)="selectedOption = qrcodeOption.option"
-            >
-              @if(qrcodeOption.icon === faLink || qrcodeOption.icon === faWifi){
-                <fa-icon [icon]="qrcodeOption.icon" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2 sm:px-2.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>                
-              }
-              @else if (qrcodeOption.icon === faEnvelope) {
-                <fa-icon [icon]="qrcodeOption.icon" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2.5 sm:px-3 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
-              }
-              @else {
-                <fa-icon [icon]="qrcodeOption.icon" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-3 sm:px-3.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
-
-              }
-              <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
-                {{ qrcodeOption.name }}
-              </p>
-              @if(selectedOption === qrcodeOption.option){
-                <div class="h-1 sm:h-1.5 mt-2 bg-pink-800 rounded-full"></div>
-              }
-              </button>
-          </div>
+        <button 
+            class="bg-gradient-to-tr from-pink-50 to-blue-100 w-24 sm:w-28 border-2 border-gray-100 py-2 px-2 sm:py-3 sm:px-3 rounded-xl hover:bg-pink-100 hover:bg-opacity-50"
+            [ngClass]="{'border-pink-300': selectedOption === qrcodeOption.option}"
+            (click)="selectedOption = qrcodeOption.option"
+          >
+            @if(qrcodeOption.icon === faLink || qrcodeOption.icon === faWifi){
+              <fa-icon [icon]="qrcodeOption.icon" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2 sm:px-2.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>                
+            }
+            @else if (qrcodeOption.icon === faEnvelope) {
+              <fa-icon [icon]="qrcodeOption.icon" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-2.5 sm:px-3 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            }
+            @else {
+              <fa-icon [icon]="qrcodeOption.icon" class="inline-flex bg-gray-100 rounded-full w-10 sm:w-12 h-10 sm:h-12 px-3 sm:px-3.5 py-2.5 sm:py-3 text-xl sm:text-2xl text-pink-700"></fa-icon>
+            }
+            <p class="mt-2 font-medium font-sans text-sm sm:text-base text-gray-800">
+              {{ qrcodeOption.name }}
+            </p>
+          </button>
         }
       </div>
     </div>

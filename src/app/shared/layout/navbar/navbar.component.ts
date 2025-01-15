@@ -13,7 +13,7 @@ import { NgOptimizedImage } from '@angular/common';
 export class NavbarComponent {
   isSidebarOpen: boolean = false;
   isLoggedIn: boolean;
-  logo = '/src/assets/logo/simplify.svg';
+  logoUrl = 'https://res.cloudinary.com/ddpbwjjfz/image/upload/v1736879140/simplify/jyqvkhkg7pz1zsyqgpyk.svg';
 
   constructor(private authService: AuthService) {
     this.isLoggedIn = this.authService.isLoggedIn();

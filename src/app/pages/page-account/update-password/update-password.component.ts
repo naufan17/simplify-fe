@@ -4,6 +4,7 @@ import { LoadingButtonComponent } from '../../../shared/ui/loading-button/loadin
 import { AlertSuccessComponent } from '../../../shared/ui/alert-success/alert-success.component';
 import { AuthService } from '../../../services/auth/auth.service';
 import { AlertErrorComponent } from '../../../shared/ui/alert-error/alert-error.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-password',
@@ -27,7 +28,10 @@ export class UpdatePasswordComponent {
     confirmPassword: new FormControl(''),
   });
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     if(this.updatePasswordForm.valid) {
@@ -39,6 +43,10 @@ export class UpdatePasswordComponent {
         if (response.statusCode === 200) {
           this.isLoading = false;
           this.successMessage = response.message;
+          setTimeout(() => {
+            this.router.navigate(['login']);
+            this.authService.removeAccessToken();
+          }, 5000);
         } else {
           this.isLoading = false;
           this.errorMessage = response.message;
