@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faKey, faHouse, faRightFromBracket, faUser, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faHouse, faRightFromBracket, faUser, faQrcode, faLink } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -21,13 +21,15 @@ export class SidebarComponent {
   faRightFromBracket = faRightFromBracket;
   faUser = faUser;
   faKey = faKey;
-  faClockRotateLeft = faClockRotateLeft;
+  faQrcode = faQrcode;
+  faLink = faLink;
   logo = '/src/assets/logo/simplify.svg';
   isActive = false;
 
   navbarLinksUp: { href: string, label: string, icon: any }[] = [
     { href: "/dashboard", label: "Dashboard", icon: faHouse },
-    { href: "/history", label: "History", icon: faClockRotateLeft },
+    { href: "/qrcode", label: "QR Code", icon: faQrcode },
+    { href: "/shorten-url", label: "URL Shortener", icon: faLink },
   ];
 
   navbarLinksDown: { href: string, label: string, icon: any }[] = [

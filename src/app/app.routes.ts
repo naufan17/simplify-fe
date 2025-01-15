@@ -9,6 +9,8 @@ import { PageAccountComponent } from './pages/page-account/page-account.componen
 import { AuthGuard } from './guard/auth/auth.guard';
 import { ProtectedGuard } from './guard/protected/protected.guard';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
+import { PageQrcodeComponent } from './pages/page-qrcode/page-qrcode.component';
+import { PageShortenUrlComponent } from './pages/page-shorten-url/page-shorten-url.component';
 
 export const routes: Routes = [
   // { path: '**', component: PageNotFoundComponent },
@@ -19,5 +21,7 @@ export const routes: Routes = [
   { path: 'generate/qrcode', component: PageGenerateQrcodeComponent },
   { path: 'documentation', component: PageComingSoonFeatureComponent },
   { path: 'dashboard', component: PageDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'qrcode', component: PageQrcodeComponent },
+  { path: 'shorten-url', component: PageShortenUrlComponent },
   { path: 'account', component: PageAccountComponent, canActivate: [AuthGuard] },
 ];

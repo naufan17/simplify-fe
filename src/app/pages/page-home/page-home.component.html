@@ -3,17 +3,17 @@
   <div id="Home" class="relative px-4 py-5 mt-16 sm:mt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
     <div class="grid lg:grid-cols-2 gap-16 lg:gap-4 my-4">
       <div class="flex flex-col justify-center items-center sm:items-start">
-        <h1 class="mb-8 font-sans text-3xl font-bold leading-normal sm:leading-normal md:leading-normal tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
+        <h1 class="mb-8 font-sans text-center sm:text-left text-3xl font-bold leading-normal sm:leading-normal md:leading-normal tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
           Make your life easier with <span class="text-pink-100 bg-pink-800 px-1">Simplify</span>
         </h1>
-        <p class="mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
+        <p class="mb-8 text-base text-center sm:text-left font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
           <span class="text-blue-100 bg-blue-800 px-1">Simplify</span> is a powerful tool designed to streamline your digital life by shortening URLs and generating QR codes for easy sharing.
         </p>
         <div class="flex flex-row space-x-4">
-          <a routerLink="/generate/qrcode" class="inline-flex items-center justify-center py-2 px-4 sm:px-6 border-2 border-pink-800 text-pink-800 rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-pink-800 hover:text-pink-100">
+          <a routerLink="/generate/qrcode" class="inline-flex items-center justify-center py-2 px-4 sm:px-6 border-2 border-pink-800 text-pink-800 rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-pink-200 hover:border-pink-200 duration-100 ease-in">
             <fa-icon [icon]="faQrcode" class="mr-2"></fa-icon>QR Code
           </a>
-          <a routerLink="/generate/url" class="inline-flex items-center justify-center border-2 border-blue-800 py-2 px-4 sm:px-6  text-blue-800 rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-blue-800 hover:text-blue-100">
+          <a routerLink="/generate/url" class="inline-flex items-center justify-center border-2 border-blue-800 py-2 px-4 sm:px-6  text-blue-800 rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-blue-200 hover:border-blue-200 duration-100 ease-in">
             <fa-icon [icon]="faLink" class="mr-2"></fa-icon>URL Shortener
           </a>      
         </div>
@@ -28,10 +28,10 @@
   </div>
   <div id="Services" class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
     <div class="flex flex-col items-center justify-center max-w-xl my-2 sm:my-4 md:mx-auto lg:max-w-3xl">
-      <h2 class="mb-8 font-sans text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-3xl md:text-4xl md:mx-auto">
+      <h2 class="mb-8 font-sans text-center text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-3xl md:text-4xl md:mx-auto">
         We Offer Two Services
       </h2>
-      <p class="mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
+      <p class="mb-8 text-base text-center font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
         <span class="text-blue-100 bg-blue-800 px-1">Simplify</span> your url into a short link and generate various QR code to <span class="text-pink-100 bg-pink-800 px-1">Simplify</span> for sharing with others.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -64,7 +64,7 @@
             </div>
           }
           <div class="flex mt-3 sm:mt-6">
-            <a routerLink="/register" class="inline-flex justify-center items-center bg-gray-800 py-2 md:py-2.5 w-full text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+            <a routerLink="/register" class="inline-flex justify-center items-center bg-gray-800 py-2 md:py-2.5 w-full text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100 duration-100 ease-in">
               Get Started
             </a>    
           </div>
@@ -98,7 +98,7 @@
             </div>
           }
           <div class="flex mt-3 sm:mt-6">
-            <a routerLink="/register" class="inline-flex justify-center items-center bg-gray-800 py-2 md:py-2.5 w-full text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+            <a routerLink="/register" class="inline-flex justify-center items-center bg-gray-800 py-2 md:py-2.5 w-full text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100 duration-100 ease-in">
               Get Started
             </a>    
           </div>
@@ -111,10 +111,10 @@
       <h2 class="mb-8 font-sans text-2xl font-bold leading-none tracking-tight text-gray-800 sm:text-4xl md:mx-auto">
         Integrate API
       </h2>
-      <p class="mb-8 text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
+      <p class="mb-8 text-center text-base font-medium font-sans leading-relaxed text-gray-700 sm:text-lg sm:leading-7">
         You can integrate this API into your own project.
       </p>
-      <a routerLink="documentation" class="inline-flex items-center justify-center py-2.5 px-4 sm:px-6 bg-gray-800 text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+      <a routerLink="documentation" class="inline-flex items-center justify-center py-2.5 px-4 sm:px-6 bg-gray-800 text-white rounded-xl text-sm sm:text-base font-medium font-sans hover:bg-gray-900 hover:text-gray-100 duration-100 ease-in">
         Documentation
       </a>
     </div>
