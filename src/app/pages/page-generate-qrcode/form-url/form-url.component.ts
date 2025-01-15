@@ -22,7 +22,7 @@ export class FormUrlComponent {
   @Input() selectedOption: string = '';
   @Output() qrcode = new EventEmitter<string>();
 
-  urlForm = new FormGroup({
+  urlForm: FormGroup = new FormGroup({
     url: new FormControl(''),
   })
 

@@ -16,14 +16,14 @@ export class UserService {
   ) { }
 
   getProfile(): any {
-    const accessToken = this.authService.getAccessToken();
-    const headers = { Authorization: `Bearer ${accessToken}` };
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: { Authorization: string } = { Authorization: `Bearer ${accessToken}` };
     return this.http.get(`${this.apiUrl}/user/profile`, { headers });
   }
 
   updateProfile(name: string, email: string, phoneNumber: string): any {
-    const accessToken = this.authService.getAccessToken();
-    const headers = { Authorization: `Bearer ${accessToken}` };
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: { Authorization: string } = { Authorization: `Bearer ${accessToken}` };
     return this.http.post(`${this.apiUrl}/user/profile`, { name, email, phoneNumber }, { headers });
   }
 }

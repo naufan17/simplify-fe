@@ -22,7 +22,7 @@ export class FormSocialMediaComponent {
   @Input() selectedOption: string = '';
   @Output() qrcode = new EventEmitter<string>();
 
-  socialMediaForm = new FormGroup({
+  socialMediaForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     socialMedia: new FormControl(''),
   })

@@ -22,7 +22,7 @@ export class FormEmailComponent {
   @Input() selectedOption: string = '';
   @Output() qrcode = new EventEmitter<string>();
 
-  emailForm = new FormGroup({
+  emailForm: FormGroup = new FormGroup({
     email: new FormControl(''),
   })
 

@@ -5,13 +5,13 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private isRefreshingToken = false;
+  private isRefreshingToken: boolean = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(private authService: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const accessToken = this.authService.getAccessToken();
+    const accessToken: string | null = this.authService.getAccessToken();
     if (accessToken) req = this.addTokenHeader(req, accessToken);
 
     return next.handle(req).pipe(

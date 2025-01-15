@@ -17,7 +17,7 @@ export class ShortenUrlService {
 
   postShortUrl(urlOrigin: string, alias?: string): any {
     const accessToken: string | null = this.authService.getAccessToken();
-    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    const headers: { Authorization: string } | {} = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
     return this.http.post(`${this.apiUrl}/shorten-url`, { urlOrigin, alias }, { headers, withCredentials: true });
   }
 }

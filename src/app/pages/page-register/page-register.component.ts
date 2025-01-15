@@ -25,9 +25,9 @@ export class PageRegisterComponent {
   successMessage: string = '';
 
   passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const formGroup = control as FormGroup;
-    const password = formGroup.get('password')?.value;
-    const confirmPassword = formGroup.get('confirmPassword')?.value;
+    const formGroup: FormGroup = control as FormGroup;
+    const password: string = formGroup.get('password')?.value;
+    const confirmPassword: string = formGroup.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
   }
 

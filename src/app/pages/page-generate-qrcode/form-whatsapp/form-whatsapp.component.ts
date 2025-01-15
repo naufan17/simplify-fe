@@ -22,7 +22,7 @@ export class FormWhatsappComponent {
   @Input() selectedOption: string = '';
   @Output() qrcode = new EventEmitter<string>();
 
-  whatsappForm = new FormGroup({
+  whatsappForm: FormGroup = new FormGroup({
     whatsapp: new FormControl(''),
   })
 

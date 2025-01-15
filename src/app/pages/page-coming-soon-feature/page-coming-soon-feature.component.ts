@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './page-coming-soon-feature.component.html',
   styleUrl: './page-coming-soon-feature.component.css'
 })
+
 export class PageComingSoonFeatureComponent {
 
 }

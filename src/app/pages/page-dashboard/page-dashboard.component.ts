@@ -8,6 +8,7 @@ import { SidebarComponent } from "../../shared/layout/sidebar/sidebar.component"
   templateUrl: './page-dashboard.component.html',
   styleUrl: './page-dashboard.component.css'
 })
+
 export class PageDashboardComponent {
 
 }

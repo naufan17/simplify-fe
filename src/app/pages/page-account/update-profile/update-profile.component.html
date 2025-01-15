@@ -5,11 +5,15 @@
     class="bg-gray-100 rounded-2xl py-4 px-5 sm:py-8 sm:px-10 shadow-md"
   >
     <div class="grid grid-cols-3 items-center">
-      <img 
-        src="{{ user.profileImage }}" 
-        alt="User Profile"
-        class="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 rounded-full"
-      >
+      @if(!user.profileImage){
+        <div class="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 rounded-full bg-gray-200 animate-pulse"></div>
+      } @else {
+        <img 
+          src="{{ user.profileImage }}" 
+          alt="User Profile"
+          class="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 rounded-full"
+        >
+      }
     </div>
     @if(successMessage){
       <app-alert-success 
@@ -91,7 +95,7 @@
       </div>
     </div>
     <div class="flex flex-row justify-end items-center mt-6 sm:mt-8">
-      <button type="submit" [disabled]="!updateProfileForm.valid" class="bg-gray-800 text-white text-sm sm:text-base rounded-xl px-4 sm:px-6 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
+      <button type="submit" class="bg-gray-800 text-white text-sm sm:text-base rounded-xl px-4 sm:px-6 py-2 md:py-2.5 font-medium font-sans hover:bg-gray-900 hover:text-gray-100">
         @if(isLoading) {
           <app-loading-button></app-loading-button>
         } @else {

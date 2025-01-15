@@ -8,7 +8,6 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   imports: [RouterOutlet],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

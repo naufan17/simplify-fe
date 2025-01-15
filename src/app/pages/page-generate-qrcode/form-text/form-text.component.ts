@@ -22,7 +22,7 @@ export class FormTextComponent {
   @Input() selectedOption: string = '';
   @Output() qrcode = new EventEmitter<string>();
 
-  textForm = new FormGroup({
+  textForm: FormGroup = new FormGroup({
     text: new FormControl(''),
   })
 

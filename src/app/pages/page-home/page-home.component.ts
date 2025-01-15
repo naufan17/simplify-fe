@@ -25,19 +25,19 @@ export class PageHomeComponent {
   faCheck = faCheck;
   openedIndex: number | null = null;
 
-  featureShortenUrl = [
+  featureShortenUrl: string[] = [
     'Custom your link',
     'Redirect to the original URL',
     'Analtytics and tracking',
   ]
 
-  featureQrCode = [
+  featureQrCode: string[] = [
     'Many option to choose',
     'Fully customizable your QR Code',
     'Analtytics and tracking',
   ]
 
-  frequentlyAskedQuestions = [
+  frequentlyAskedQuestions: { question: string, answer: string }[] = [
     {
       question: 'What is Simplify?',
       answer: 'Simplify is a service to shorten url and generate QR code to share with others.'

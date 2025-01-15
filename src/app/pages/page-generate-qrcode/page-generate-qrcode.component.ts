@@ -44,11 +44,7 @@ export class PageGenerateQrcodeComponent {
   faWifi = faWifi;
   faHashtag = faHashtag;
 
-  qrcodeOptions: { 
-    option: string, 
-    name: string, 
-    icon: any 
-  }[] = [
+  qrcodeOptions: { option: string, name: string, icon: any }[] = [
     {
       option: 'text',
       name: 'Text',

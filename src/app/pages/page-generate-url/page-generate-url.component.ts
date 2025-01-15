@@ -31,7 +31,7 @@ export class PageGenerateUrlComponent {
   isCopied: boolean = false;
   isLoading: boolean = false;
   errorMessage: string = '';
-  shotenUrlForm = new FormGroup({
+  shotenUrlForm: FormGroup = new FormGroup({
     urlOrigin: new FormControl(''),
     id: new FormControl(''),  
   });
