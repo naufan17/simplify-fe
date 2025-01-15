@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faKey, faHouse, faRightFromBracket, faUser, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
@@ -32,10 +32,14 @@ export class SidebarComponent {
 
   navbarLinksDown: { href: string, label: string, icon: any }[] = [
     { href: "/account", label: "Account", icon: faUser },
-    { href: "/api-key", label: "Api Key", icon: faKey },
+    { href: "/api-key", label: "API Key", icon: faKey },
   ];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  isRouteActive(href: string): boolean {
+    return this.router.url === href;
+  }
 
   logout(): void {
     this.authService.logout();

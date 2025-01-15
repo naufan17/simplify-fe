@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,29 +10,44 @@ import { HttpClient } from '@angular/common/http';
 export class QrcodeService {
   private apiUrl = environment.apiUrl;
   
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) {}
 
   postQrcodeText(text: string): any {
-    return this.http.post(`${this.apiUrl}/qrcode/text`, { text })
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.post(`${this.apiUrl}/qrcode/text`, { text }, { headers, withCredentials: true });
   }
 
   postQrcodeUrl(url: string): any {
-    return this.http.post(`${this.apiUrl}/qrcode/url`, { url })
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.post(`${this.apiUrl}/qrcode/url`, { url }, { headers, withCredentials: true });
   }
 
   postQrcodeEmail(email: string): any {
-    return this.http.post(`${this.apiUrl}/qrcode/email`, { email })
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.post(`${this.apiUrl}/qrcode/email`, { email }, { headers, withCredentials: true });
   }
 
   postQrcodeWhatsapp(whatsapp: string): any {
-    return this.http.post(`${this.apiUrl}/qrcode/whatsapp`, { whatsapp })
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.post(`${this.apiUrl}/qrcode/whatsapp`, { whatsapp }, { headers, withCredentials: true });
   }
 
   postQrcodeWifi(ssid: string, password: string, encryption: string): any {
-    return this.http.post(`${this.apiUrl}/qrcode/wifi`, { ssid, password, encryption })
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.post(`${this.apiUrl}/qrcode/wifi`, { ssid, password, encryption }, { headers, withCredentials: true });
   }
 
   postQrcodeSocialMedia(username: string, socialMedia: string): any {
-    return this.http.post(`${this.apiUrl}/qrcode/social-media`, { username, socialMedia })
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: any = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.post(`${this.apiUrl}/qrcode/social-media`, { username, socialMedia }, { headers, withCredentials: true });
   }
 }

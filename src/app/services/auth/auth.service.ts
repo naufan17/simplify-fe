@@ -55,8 +55,8 @@ export class AuthService {
   }
 
   updatePassord(password: string, confirmPassword: string): any {
-    const accessToken = this.getAccessToken();
-    const headers = { Authorization: `Bearer ${accessToken}` };
+    const accessToken: string | null = this.getAccessToken();
+    const headers: any = { Authorization: `Bearer ${accessToken}` };
     return this.http.post(`${this.apiUrl}/auth/change-password`, { password, confirmPassword }, { headers, withCredentials: true });
   }
 
