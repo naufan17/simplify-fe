@@ -4,18 +4,40 @@
       <img src="/src/assets/logo/simplify.svg" alt="Simplify Logo">
     </a>
     @for(link of navbarLinksUp; track link.href){
-      <li [ngClass]="{ 'bg-gray-100 bg-opacity-50': isRouteActive(link.href), '': !isRouteActive(link.href)}" class="flex flex-col sm:flex-row items-center px-2 md:px-6 py-2 w-24 sm:w-auto rounded-lg">
-        <fa-icon [icon]="link.icon" class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"></fa-icon>
-        <a routerLink="{{ link.href }}" class="mt-2 sm:mt-0 sm:ml-2 text-center text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900">
+      <li 
+        [ngClass]="{ 'bg-gray-100 bg-opacity-50': isRouteActive(link.href), '': !isRouteActive(link.href)}" 
+        class="flex flex-col sm:flex-row items-center px-2 md:px-6 py-2 w-24 sm:w-auto rounded-lg"
+      >
+        <fa-icon 
+          [icon]="link.icon" 
+          [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
+          class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"
+        ></fa-icon>
+        <a 
+          routerLink="{{ link.href }}" 
+          [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
+          class="mt-2 sm:mt-0 sm:ml-2 text-center text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900"
+        >
           {{ link.label }}
         </a>
       </li>
     }
     <span class="hidden sm:inline-block my-4 bg-gray-300 h-0.5 w-full rounded-full"></span>
     @for(link of navbarLinksDown; track link.href){
-      <li [ngClass]="{ 'bg-gray-100 bg-opacity-50': isRouteActive(link.href), '': !isRouteActive(link.href)}" class="flex flex-col sm:flex-row items-center px-4 md:px-6 py-2 w-24 sm:w-auto rounded-lg">
-        <fa-icon [icon]="link.icon" class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"></fa-icon>
-        <a routerLink="{{ link.href }}" class="mt-2 sm:mt-0 sm:ml-2 text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900">
+      <li 
+        [ngClass]="{ 'bg-gray-100 bg-opacity-50': isRouteActive(link.href), '': !isRouteActive(link.href)}" 
+        class="flex flex-col sm:flex-row items-center px-4 md:px-6 py-2 w-24 sm:w-auto rounded-lg"
+      >
+        <fa-icon 
+          [icon]="link.icon" 
+          [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
+          class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"
+        ></fa-icon>
+        <a 
+          routerLink="{{ link.href }}" 
+          [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
+          class="mt-2 sm:mt-0 sm:ml-2 text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900"
+        >
           {{ link.label }}
         </a>
       </li>

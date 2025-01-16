@@ -2,47 +2,111 @@
   <app-sidebar></app-sidebar>
   <div class="sm:ml-48 md:ml-64">
     <div class="relative px-4 py-5 mx-auto w-full sm:min-w-xl md:max-w-screen-lg lg:px-8 lg:py-10">
-      <div class="bg-gray-100 rounded-2xl shadow-md">
-        <div class="flex flex-row items-center justify-between p-6">
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl">
+        <div class="flex flex-row items-center justify-end p-4 sm:p-6">
           <div>
-            <p class="text-sm sm:text-base font-medium font-sans text-gray-800">
-              1000 Data
-            </p>
-          </div>
-          <div>
-            <select 
-              name="" 
-              id=""
-              class="px-2.5 sm:px-3 py-1.5 sm:py-2 border border-gray-300 font-sans text-sm font-medium text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-300 placeholder:text-gray-300 focus:placeholder:text-gray-100"
+            <select
+              (change)="onFilterChange($event)"
+              class="px-2.5 sm:px-3 py-1.5 sm:py-2 bg-gray-100 border border-gray-300 font-sans text-sm font-medium text-gray-800 sm:text-base rounded-xl focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-300"
             >
-              <option selected hidden value="shorten-url">Date</option>
-              <option value="newest">Newest</option>
-              <option value="oldest">Oldest</option>
+              <option selected hidden>Filter</option>
+              <option value="text">Text</option>
+              <option value="url">Url</option>
+              <option value="email">Email</option>
+              <option value="whatsapp">Whatsapp</option>
+              <option value="wifi">Wifi</option>
+              <option value="social-media">Social Media</option>
             </select>
           </div>
         </div>
-        <table class="w-full">
-          <thead class="bg-slate-200 text-sm sm:text-base text-gray-800">
-            <tr>
-              <th class="px-4 sm:px-6 py-3 sm:py-4 text-center font-medium font-sans tracking-wider">
-                Date
-              </th>
-              <th class="px-4 sm:px-6 py-3 sm:py-4 text-center font-medium font-sans tracking-wider">
-                Type
-              </th>
-              <th class="px-4 sm:px-6 py-3 sm:py-4 text-center font-medium font-sans tracking-wider">
-                Amount
-              </th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-300">
-            <tr class="bg-slate-10">
-              <td class="px-4 sm:px-6 py-3 sm:py-4 text-center font-medium font-sans text-gray-800">Date</td>
-              <td class="px-4 sm:px-6 py-3 sm:py-4 text-center font-medium font-sans text-gray-800">Type</td>
-              <td class="px-4 sm:px-6 py-3 sm:py-4 text-center font-medium font-sans text-gray-800">Amount</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-200 text-sm sm:text-base text-gray-800 border-y border-gray-300">
+              <tr>
+                <th class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-medium font-sans tracking-wider">
+                  Type
+                </th>
+                <th class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-medium font-sans tracking-wider">
+                  Payload
+                </th>
+                <th class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-medium font-sans tracking-wider">
+                  Qr Code
+                </th>
+                <th class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-medium font-sans tracking-wider">
+                  Created At
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-300 text-sm sm:text-base">
+              @if(!qrCodeHistory){
+                <tr>
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3">
+                    <div class="h-2 bg-gray-200 rounded-full animate-pulse"></div>
+                  </td>
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3">
+                    <div class="h-2 bg-gray-200 rounded-full animate-pulse"></div>                    
+                  </td>
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3">
+                    <div class="h-2 bg-gray-200 rounded-full animate-pulse"></div>
+                  </td>
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3">
+                    <div class="h-2 bg-gray-200 rounded-full animate-pulse"></div>
+                  </td>
+                </tr>
+              }
+              @for(qrCodeHistories of qrCodeHistory; track qrCodeHistories){
+                <tr>
+                  @if(qrCodeHistories.type == 'text'){
+                    <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-blue-800">
+                      <p class="inline-flex py-0.5 px-3 bg-blue-300 bg-opacity-50 rounded-full">
+                        {{ qrCodeHistories.type }}
+                      </p>
+                    </td>                    
+                  } @else if (qrCodeHistories.type == 'url') {
+                    <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-green-800">
+                      <p class="inline-flex py-0.5 px-3 bg-green-300 bg-opacity-50 rounded-full">
+                        {{ qrCodeHistories.type }}
+                      </p>
+                    </td>
+                  } @else if (qrCodeHistories.type == 'email') {
+                    <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-yellow-800">
+                      <p class="inline-flex py-0.5 px-3 bg-yellow-300 bg-opacity-50 rounded-full">
+                        {{ qrCodeHistories.type }}
+                      </p>
+                    </td>
+                  } @else if (qrCodeHistories.type == 'whatsapp') {
+                    <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-pink-800">
+                      <p class="inline-flex py-0.5 px-3 bg-pink-300 bg-opacity-50 rounded-full">
+                        {{ qrCodeHistories.type }}
+                      </p>
+                    </td>
+                  } @else if (qrCodeHistories.type == 'wifi') {
+                    <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-purple-800">
+                      <p class="inline-flex py-0.5 px-3 bg-purple-300 bg-opacity-50 rounded-full">
+                        {{ qrCodeHistories.type }}
+                      </p>
+                    </td>
+                  } @else if (qrCodeHistories.type == 'social media') {
+                    <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-green-800">
+                      <p class="inline-flex py-0.5 px-3 bg-green-300 bg-opacity-50 rounded-full">
+                        {{ qrCodeHistories.type }}
+                      </p>
+                    </td>
+                  }
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-left font-sans text-gray-800">
+                    {{ qrCodeHistories.payload }}
+                  </td>
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-gray-800">
+                    <img src="{{ qrCodeHistories.qrcode }}" width="100" height="100" class="rounded-lg" alt="Qr Code">
+                  </td>
+                  <td class="px-3 sm:px-6 py-1.5 sm:py-3 text-left font-sans text-gray-800">
+                    {{ formatDate(qrCodeHistories.createdAt) }}
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

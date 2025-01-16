@@ -15,6 +15,12 @@ export class QrcodeService {
     private authService: AuthService
   ) {}
 
+  getQrCode(): any {
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: { Authorization: string } | {} = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.get(`${this.apiUrl}/qrcode/history`, { headers, withCredentials: true });
+  }
+
   postQrcodeText(text: string): any {
     const accessToken: string | null = this.authService.getAccessToken();
     const headers: { Authorization: string } | {} = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};

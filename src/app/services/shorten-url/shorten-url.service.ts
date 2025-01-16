@@ -15,6 +15,12 @@ export class ShortenUrlService {
     private authService: AuthService
   ) {}
 
+  getShortUrl(): any {
+    const accessToken: string | null = this.authService.getAccessToken();
+    const headers: { Authorization: string } | {} = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+    return this.http.get(`${this.apiUrl}/shorten-url/history`, { headers, withCredentials: true });
+  }
+
   postShortUrl(urlOrigin: string, alias?: string): any {
     const accessToken: string | null = this.authService.getAccessToken();
     const headers: { Authorization: string } | {} = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
