@@ -1,13 +1,13 @@
 <nav class="top-0 z-50 w-full">
   <div class="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-4">
     <div class="flex items-center justify-between">
-      <div class="sm:hidden"></div>
-      <button (click)="toggleSidebar()" class="sm:hidden p-2 text-gray-800 hover:bg-gray-200 rounded-xl duration-100 ease-in">
+      <div class="md:hidden"></div>
+      <button (click)="toggleSidebar()" class="md:hidden p-2 text-gray-800 hover:bg-gray-200 rounded-xl duration-100 ease-in">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
-      <ul class="hidden sm:flex items-center space-x-12 lg:space-x-16">
+      <ul class="hidden md:flex items-center space-x-12 lg:space-x-16">
         <a routerLink="/">
           <img src="/src/assets/logo/simplify.svg" alt="Simplify Logo">
         </a>
@@ -20,13 +20,13 @@
         }
       </ul>
       @if(isLoggedIn){
-        <div class="hidden sm:flex items-center space-x-2 sm:space-x-4">
+        <div class="hidden md:flex items-center space-x-2 md:space-x-4">
           <a routerLink="/dashboard" class="inline-flex items-center justify-center bg-gray-800 text-white border-2 border-gray-800 text-sm sm:text-base rounded-xl px-4 md:px-6 py-1.5 md:py-2 font-medium font-sans hover:bg-gray-900 hover:border-gray-900 hover:text-gray-100 duration-100 ease-in">
             Dashboard
           </a>
         </div>
       } @else {
-        <div class="hidden sm:flex items-center space-x-2 sm:space-x-4">
+        <div class="hidden md:flex items-center space-x-2 md:space-x-4">
           <a routerLink="/login" class="inline-flex items-center justify-center text-gray-800 border-2 border-gray-800 text-sm sm:text-base rounded-xl px-4 md:px-6 py-1.5 md:py-2 font-medium font-sans hover:bg-gray-200 hover:border-gray-200 duration-100 ease-in">
             Login
           </a>

@@ -27,18 +27,34 @@ export class PageQrcodeComponent {
       } else {
         console.error('Unexpected response code', response.message);
       }
+    },
+    (error: any) => {
+      console.error('Error fetching qrcode history', error);
     });
   }
 
   onFilterChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     this.selectedFilter = selectElement.value;
-    if(this.selectedFilter === 'text') this.qrCodeHistory = this.qrCodeHistory.filter(qrCode => qrCode.type === 'text');
-    if(this.selectedFilter === 'url') this.qrCodeHistory = this.qrCodeHistory.filter(qrCode => qrCode.type === 'url');
-    if(this.selectedFilter === 'email') this.qrCodeHistory = this.qrCodeHistory.filter(qrCode => qrCode.type === 'email');
-    if(this.selectedFilter === 'whatsapp') this.qrCodeHistory = this.qrCodeHistory.filter(qrCode => qrCode.type === 'whatsapp');
-    if(this.selectedFilter === 'wifi') this.qrCodeHistory = this.qrCodeHistory.filter(qrCode => qrCode.type === 'wifi');
-    if(this.selectedFilter === 'social-media') this.qrCodeHistory = this.qrCodeHistory.filter(qrCode => qrCode.type === 'social media');
+    if(this.selectedFilter === 'text') this.filteredQrCodeHistory('text');
+    if(this.selectedFilter === 'url') this.filteredQrCodeHistory('url');
+    if(this.selectedFilter === 'email') this.filteredQrCodeHistory('email');
+    if(this.selectedFilter === 'whatsapp') this.filteredQrCodeHistory('whatsapp');
+    if(this.selectedFilter === 'wifi') this.filteredQrCodeHistory('wifi');
+    if(this.selectedFilter === 'social-media') this.filteredQrCodeHistory('social media');
+  }
+
+  filteredQrCodeHistory(filter: 'text' | 'url' | 'email' | 'whatsapp' | 'wifi' | 'social media'): void {
+    this.qrCodeHistory = this.qrcodeService.getQrCode(filter).subscribe((response: any) => {
+      if(response.statusCode === 200) {
+        this.qrCodeHistory = response.data.qrcode;
+      } else {
+        console.error('Unexpected response code', response.message);
+      }
+    },
+    (error: any) => {
+      console.error('Error fetching qr code history', error);
+    });
   }
 
   formatDate(dateString: Date): string {

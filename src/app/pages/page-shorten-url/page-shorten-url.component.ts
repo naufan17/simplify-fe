@@ -25,6 +25,9 @@ export class PageShortenUrlComponent {
       } else {
         console.error('Unexpected response code', response.message);
       }
+    },
+    (error: any) => {
+      console.error('Error fetching shorten url history', error);
     });
   }
 
