@@ -6,18 +6,18 @@
     @for(link of navbarLinksUp; track link.href){
       <li 
         [ngClass]="{ 'bg-gray-100 bg-opacity-50': isRouteActive(link.href), '': !isRouteActive(link.href)}" 
-        class="flex flex-col sm:flex-row items-center px-2 md:px-6 py-2 w-24 sm:w-auto rounded-lg"
+        class="px-2 md:px-6 py-2 w-24 sm:w-auto rounded-lg"
       >
-        <fa-icon 
-          [icon]="link.icon" 
-          [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
-          class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"
-        ></fa-icon>
         <a 
           routerLink="{{ link.href }}" 
           [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
-          class="mt-2 sm:mt-0 sm:ml-2 text-center text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900"
+          class="flex flex-col sm:flex-row items-center text-center text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900"
         >
+          <fa-icon 
+            [icon]="link.icon" 
+            [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
+            class="inline-flex justify-center items-center sm:mt-0 sm:mr-2 bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"
+          ></fa-icon>
           {{ link.label }}
         </a>
       </li>
@@ -26,25 +26,25 @@
     @for(link of navbarLinksDown; track link.href){
       <li 
         [ngClass]="{ 'bg-gray-100 bg-opacity-50': isRouteActive(link.href), '': !isRouteActive(link.href)}" 
-        class="flex flex-col sm:flex-row items-center px-4 md:px-6 py-2 w-24 sm:w-auto rounded-lg"
+        class="px-4 md:px-6 py-2 w-24 sm:w-auto rounded-lg"
       >
-        <fa-icon 
-          [icon]="link.icon" 
-          [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
-          class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"
-        ></fa-icon>
         <a 
           routerLink="{{ link.href }}" 
           [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
-          class="mt-2 sm:mt-0 sm:ml-2 text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900"
+          class="flex flex-col sm:flex-row items-center text-center text-sm font-medium font-sans text-gray-800 sm:text-base hover:text-gray-900"
         >
+          <fa-icon 
+            [icon]="link.icon" 
+            [ngClass]="{ 'text-gray-900': isRouteActive(link.href), 'text-gray-800': !isRouteActive(link.href)}"
+            class="inline-flex justify-center items-center sm:mt-0 sm:mr-2 bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-gray-800"
+          ></fa-icon>
           {{ link.label }}
         </a>
       </li>
     }
     <li class="flex flex-col sm:flex-row items-center px-4 md:px-6 py-2 w-22 sm:w-auto rounded-lg">
-      <fa-icon [icon]="faRightFromBracket" class="inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-pink-700"></fa-icon>
-      <button (click)="logout()" class="mt-2 sm:mt-0 sm:ml-2 text-sm font-medium font-sans text-pink-700 sm:text-base hover:text-pink-800">
+      <button (click)="logout()" class="text-sm font-medium font-sans text-pink-700 sm:text-base hover:text-pink-800">
+        <fa-icon [icon]="faRightFromBracket" class="sm:mt-0 sm:mr-2 inline-flex justify-center items-center bg-gray-100 rounded-lg w-7 h-7 text-sm sm:text-base text-pink-700"></fa-icon>
         Logout
       </button>
     </li>
