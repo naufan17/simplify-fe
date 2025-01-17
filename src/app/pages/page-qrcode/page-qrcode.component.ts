@@ -19,16 +19,20 @@ export class PageQrcodeComponent {
     createdAt: Date;
   }[] = [];
   selectedFilter: string = '';
+  isLoading: boolean = true;
 
   constructor(private qrcodeService: QrcodeService) {
     this.qrCodeHistory = this.qrcodeService.getQrCode().subscribe((response: any) => {
       if(response.statusCode === 200) {
+        this.isLoading = false;
         this.qrCodeHistory = response.data.qrcode;
       } else {
+        this.isLoading = false;
         console.error('Unexpected response code', response.message);
       }
     },
     (error: any) => {
+      this.isLoading = false;
       console.error('Error fetching qrcode history', error);
     });
   }
@@ -47,12 +51,15 @@ export class PageQrcodeComponent {
   filteredQrCodeHistory(filter: 'text' | 'url' | 'email' | 'whatsapp' | 'wifi' | 'social media'): void {
     this.qrCodeHistory = this.qrcodeService.getQrCode(filter).subscribe((response: any) => {
       if(response.statusCode === 200) {
+        this.isLoading = false;
         this.qrCodeHistory = response.data.qrcode;
       } else {
+        this.isLoading = false;
         console.error('Unexpected response code', response.message);
       }
     },
     (error: any) => {
+      this.isLoading = false;
       console.error('Error fetching qr code history', error);
     });
   }

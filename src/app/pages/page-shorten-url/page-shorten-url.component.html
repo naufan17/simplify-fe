@@ -3,6 +3,11 @@
   <div class="sm:ml-48 md:ml-64">
     <div class="relative px-4 py-5 mx-auto w-full sm:min-w-xl md:max-w-screen-lg lg:px-8 lg:py-10">
       <div class="bg-gray-100 border border-gray-300 rounded-2xl">
+        @if(shortenUrlHistory){
+          <p class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-gray-800">
+            No data found
+          </p>
+        }
         <div class="flex flex-row items-center justify-between p-4 sm:p-6">
         </div>
         <div class="overflow-x-auto">
@@ -24,7 +29,7 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-300 text-sm sm:text-base">
-              @if(!shortenUrlHistory){
+              @if(isLoading){
                 <tr>
                   <td class="px-3 sm:px-6 py-1.5 sm:py-3">
                     <div class="h-2 bg-gray-200 rounded-full animate-pulse"></div>
