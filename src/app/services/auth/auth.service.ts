@@ -19,7 +19,7 @@ export class AuthService {
   ) { }
 
   postLogin(email: string, password: string): any {
-    return this.http.post(`${this.apiUrl}/auth/login`, { email, password }, { withCredentials: true }).pipe(
+    return this.http.post(`${this.apiUrl}/auth/login`, { email, password }).pipe(
       tap((response: any) => {
         localStorage.setItem('accessToken', response.data.accessToken);
       }),
