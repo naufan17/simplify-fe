@@ -21,13 +21,17 @@ export class AuthService {
   postLogin(email: string, password: string): any {
     return this.http.post(`${this.apiUrl}/auth/login`, { email, password }).pipe(
       tap((response: any) => {
-        localStorage.setItem('accessToken', response.data.accessToken);
+        this.setAccessToken(response.data.accessToken);
       }),
     );
   }
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('accessToken');
+  }
+
+  setAccessToken(accessToken: string): void {
+    localStorage.setItem('accessToken', accessToken);
   }
 
   getAccessToken(): string | null {
@@ -41,7 +45,7 @@ export class AuthService {
   refreshAccessToken(): any {
     return this.http.get(`${this.apiUrl}/auth/refresh-token`, { withCredentials: true }).pipe(
       tap((response: any) => {
-        localStorage.setItem('accessToken', response.data.accessToken);
+        this.setAccessToken(response.data.accessToken);
       }),
       catchError((error: any) => {
         this.logout();
