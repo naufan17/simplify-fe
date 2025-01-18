@@ -24,7 +24,7 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-300 text-sm sm:text-base">
-              @if(shortenUrlHistory){
+              @if(shortenUrlHistory.length === 0){
                 <p class="px-3 sm:px-6 py-1.5 sm:py-3 text-center font-sans text-gray-800">
                   No data found
                 </p>
